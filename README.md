@@ -1,29 +1,18 @@
-### Termos e acordos
+# Boas vindas ao repositório do projeto Movie Card Library CRUD!
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe
+Projeto desenvolvido como requisito parcial para conclusão do módulo de Front-end do curso de Desenvolvimento Web da Trybe. Este projeto utiliza **React** com classes para criação de um **CRUD** de cards de filmes. A aplicação permite a realização das seguintes operações: 
 
-# Boas vindas ao repositório do projeto de Movie Cards CRUD!
+  - Adicionar um novo filme à lista - **CREATE**;
+  - Listar todos os filmes cadastrados, com uma página de informações resumidas sobre cada filme e uma página de informações detalhadas de um filme selecionado - **READ**;
+  - Editar um filme da lista - **UPDATE**;
+  - E apagar um filme da lista - **DELETE**;
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+Tem como objetivos entender o funcionamento da estruturação de múltiplas rotas numa aplicação front-end React, trabalhar componentização dos elementos, compreender o funcionamento do ciclo de vida do React.
 
 # Sumário
 
 - [Habilidades](#habilidades)
-- [Entregáveis](#entregáveis)
-  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
-  - [Data de entrega](#data-de-entrega)
-- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-- [Como desenvolver](#como-desenvolver)
-  - [Nomenclatura](#nomenclatura)
-  - [Linter](#linter)
-  - [Testes](#testes)
-    - [Dica: desativando testes](#dica-desativando-testes)
-    - [Dica: watch mode](#dica-watch-mode)
+- [Data de entrega](#data-de-entrega)
 - [Requisitos do projeto](#requisitos-do-projeto)
 
     `Requisitos Obrigatórios:`
@@ -42,231 +31,25 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 # Habilidades
 
-Nesse projeto, você será capaz de:
+Nesse projeto, foram desenvolvidas as seguintes habilidades:
 
-- Utilizar o componentDidMount para executar uma ação após o componente ser inserido no DOM;
-- Utilizar o shouldComponentUpdate para avaliar se uma atualização do componente deve ou não acontecer naquele momento;
-- Utilizar o componentDidUpdate para executar uma ação após o componente ser atualizado;
-- Utilizar o componentWillUnmount para realizar uma ação antes de o componente ser desmontado;
-- Utilizar o props.children para acessar os filhos de um componente React e interagir com eles;
-- Utilizar o componente BrowserRouter corretamente;
-- Criar links de navegação na aplicação com o componente Link ;
-- Criar rotas, mapeando o caminho da URL com o componente correspondente, via Route ;
-- Estruturar e organizar as rotas da sua aplicação com o componente Switch ;
-- Usar o componente Redirect pra alternar entre rotas.
-
-# Entregáveis
-
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
-
-Lembre-se que você pode consultar nosso conteúdo sobre Git & GitHub sempre que precisar!
+- Utilização do componentDidMount para executar uma ação após o componente ser inserido no DOM;
+- Utilização do shouldComponentUpdate para avaliar se uma atualização do componente deve ou não acontecer naquele momento;
+- Utilização do componentDidUpdate para executar uma ação após o componente ser atualizado;
+- Utilização do componentWillUnmount para realizar uma ação antes de o componente ser desmontado;
+- Utilização do props.children para acessar os filhos de um componente React e interagir com eles;
+- Utilização do componente BrowserRouter corretamente;
+- Criação de links de navegação na aplicação com o componente Link ;
+- Criação de rotas, mapeando o caminho da URL com o componente correspondente, via Route ;
+- Estruturação e organização das rotas da sua aplicação com o componente Switch ;
+- Utilização do componente Redirect pra alternar entre rotas.
 
 ---
-
-## O que deverá ser desenvolvido
-
-Dando continuidade aos últimos projetos, você criará um **CRUD** de cartões de filmes em React. 
-A sigla **CRUD** significa, _Create, Read, Update and Delete_, então deve ser possível realizar as seguintes operações nesse projeto:
-
-  - Adicionar um novo filme à lista - **CREATE**;
-  - Listar todos os filmes cadastrados, com uma página de informações resumidas sobre cada filme e uma página de informações detalhadas de um filme selecionado - **READ**;
-  - Editar um filme da lista - **UPDATE**;
-  - E apagar um filme da lista - **DELETE**;
-
-## Desenvolvimento
-
-Nos últimos projetos, por mais que o app tenha sido desenvolvido utilizando múltiplos componentes, o que é uma boa prática, todas as funcionalidades eram acessadas ao mesmo tempo, no mesmo lugar, utilizando apenas uma URL (`localhost:3000`, normalmente). Na mesma página onde havia a listagem de filmes, havia um formulário pra criar um novo filme, por exemplo. À medida que seus apps se tornarem maiores e mais complexos, isso se tornará inviável. Desta vez, as funcionalidades do app serão agrupadas e organizadas em rotas.
-
-Uma rota define o que deve ser renderizado na página ao abri-la. Cada rota está associada a um caminho. O caminho é a parte da URL após o domínio (nome do site, de forma simplificada). Por exemplo, em `www.site.com/projetos/meu-jogo`, o caminho é `/projetos/meu-jogo`. Até agora, todos os apps React que você desenvolveu possuíam somente uma rota, a raiz (`/`).
-
-Este app terá 4 rotas:
-
-1. A rota raiz (index), no caminho `/`. Esta rota exibirá uma lista com todos os filmes cadastrados. Essa lista contém informações resumidas sobre cada filme.
-
-2. Uma rota para criar novos filmes, no caminho `/movies/new`. Essa rota renderizará um formulário para adicionar um novo filme.
-
-3. Uma rota para mostrar informações detalhadas de um filme, no caminho `/movies/:id`. Onde o `:id` é o parâmetro da URL que representa o _id_ do filme exibido. Por exemplo, ao entrar no caminho `/movies/5`, serão exibidas informações sobre o filme com _id_ `5`.
-
-4. Uma rota para editar um filme, no caminho `/movies/:id/edit`. Assim como na rota 3, `:id` é o _id_ do filme a ser editado. Essa rota renderizará um formulário idêntico ao da rota 2. Nesse caso, porém, o formulário virá preenchido com as informações do filme a ser editado. Ao submeter o formulário, ao invés de criar um novo filme, o filme em questão terá seus dados atualizados.
-
-Relacionado a cada rota haverá um componente React responsável por renderizar seu conteúdo. Esse mapeamento entre o caminho da URL, rota e componente será feito pelo `React Router`, a principal biblioteca de roteamento em `React`.
-
-Naturalmente, haverá links de navegação e redirecionamento entre as diferentes rotas. Por exemplo, na rota 1 (caminho `/`), haverá, para cada filme, um link para a rota 3 (caminho `/movies/:id`), onde se poderá ver informações detalhadas sobre o filme escolhido. Na rota 3 (caminho `/movies/:id`), haverá um link para a rota 4 (caminho `/movies/:id/edit`), a fim de se editar informações do filme. Ao submeter o formulário, o app automaticamente será levado de volta à rota 3 (caminho `/movies/:id`), mostrando as informações atualizadas do filme. Tudo isso será feito utilizando os componentes da biblioteca `React Router`.
-
-Outra diferença importante neste projeto em relação aos anteriores é que os dados virão de uma API (simulada) e não mais de um arquivo estático. Você utilizará essa API para criar, ler, atualizar e apagar filmes. Logo, você terá que lidar com requisições assíncronas e _promises_. Também deverá fazer uso de _lifecycle methods_ e de estados para controlar o que é renderizado por seus componentes a depender de em que momento as requisições se encontram.
 
 ## Data de entrega
 
-  - Serão `2` dias de projeto.
+  - Foram `2` dias de projeto.
   - Data de entrega para avaliação final do projeto: `17/05/2021 - 14:00h`.
-
----
-
-# Instruções para entregar seu projeto
-
-## Antes de começar a desenvolver
-
-1. Clone o repositório
-  * `git clone https://github.com/tryber/sd-010-a-project-movie-card-library-crud.git`.
-  * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-010-a-project-movie-card-library-crud`
-
-2. Instale as dependências e inicialize o projeto
-  * Instale as dependências:
-    * `npm install`
-  * Inicialize o projeto:
-    * `npm start` (uma nova página deve abrir no seu navegador com um texto simples)
-
-3. Crie uma branch a partir da branch `master`
-  * Verifique que você está na branch `master`
-    * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `master`
-    * Exemplo: `git checkout master`
-  * Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
-    * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-    * Exemplo: `git checkout -b joaozinho-project-movie-card-library-crud`
-
-4. Faça alterações em algum dos componentes que precisam de implementação, por exemplo o `App` em `src/`:
-```jsx
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
-
-function App() {
-  return (
-    <Router>
-      <div>Movie Card Library CRUD</div>
-    </Router>
-  );
-}
-
-export default App;
-```
-
-5. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-  * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (deve aparecer listado o arquivo _src/App.js_ em vermelho)
-  * Adicione o arquivo alterado ao _stage_ do Git
-      * Exemplo:
-        * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (deve aparecer listado o arquivo _src/App.js_ em verde)
-  * Faça o `commit` inicial
-      * Exemplo:
-        * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
-        * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-6. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin joaozinho-project-movie-card-library-crud`
-
-7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pulls)
-  * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-  * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-  * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-010-a-project-movie-card-library-crud/pulls) e confira que o seu _Pull Request_ está criado
-
-
----
-
-## Durante o desenvolvimento
-
-* ⚠ **PULL REQUESTS COM ISSUES NO LINTER NÃO SERÃO AVALIADAS, ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠
-
-* ⚠ **LEMBRE-SE DE CRIAR TODOS OS ARQUIVOS DENTRO DA PASTA COM O SEU NOME** ⚠
-
-* Faça `commits` das alterações que você fizer no código regularmente;
-
-* Lembre-se de sempre após um ~~(ou alguns)~~ `commits` atualizar o repositório remoto (o famoso `git push`);
-
-* Os comandos que você utilizará com mais frequência são:
-
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_;
-
-  2. `git add` _(para adicionar arquivos ao stage do Git)_;
-
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_;
-
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_;
-
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_.
-
----
-
-# Como desenvolver
-
-Este repositório já contém um _template_ com um App React criado. Após clonar o projeto e instalar as dependências (mais sobre isso abaixo), você deverá completar este _template_ implementando os requisitos listados na próxima seção.
-
----
-
-## Nomenclatura 
-
-**ATENÇÃO!** Muito cuidado com os nomes especificados nos requisitos! O conteúdo deve ser **exatamente igual** ao texto descrito no requisito. Em alguns componentes foram colocadas propriedades chamadas _data-testid_ que, sob nenhuma hipótese devem ser alteradas. Os detalhes acima tem implicação direta no funcionamento do avaliador.
-
-Os testes foram desenvolvidos dessa forma para permitir uma maior liberdade para estruturar e estilizar a página, portanto, abusem da criatividade! 😉
-
-**⚠️ Adicione PropTypes a todos os componentes ⚠️**
-
-Todos os componentes que recebem _props_ devem ter suas _PropTypes_ corretamente declaradas. O _eslint_ checa automaticamente declaração de _PropTypes_, portanto seu _Pull Request_ só receberá nota se elas estiverem feitas.
-
----
-
-## Linter
-
-Para garantir a qualidade do código, vamos utilizar neste projeto os linters `ESLint` e `StyleLint`.
-Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível
-e de fácil manutenção! Para roda-los localmente no projeto, execute os comandos abaixo:
-
-```bash
-npm run lint
-npm run lint:styles
-```
-
-⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS.
-ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠️
-
----
-
-## Testes
-
-Todos os requisitos do projeto serão testados **automaticamente**. Cada componente possui vários requisitos e os testes para cada requisito de um componente estão no arquivo de teste correspondente.
-
-_**Por exemplo**: Os requisitos relacionados à página `EditMovie` estão no arquivo `EditMovie.test.js`._
-
-Para executar os testes localmente, digite no terminal o comando `npm test`.
-
-### Dica: desativando testes
-
-Especialmente no início, quando a maioria dos testes está falhando, a saída após executar os testes é bastante poluída. Você pode desabilitar temporariamente um teste utilizando a função `skip` junto à função `it`. Como o nome indica, esta função "pula" um teste:
-
-```js
-it.skip('it includes the text `Movie Cards Library` inside a h1 tag', () => {
-  wrapper = shallow(<Header />);
-
-  expect(wrapper.find('header h1').text()).toBe('Movie Cards Library');
-});
-```
-
-Uma estratégia é pular todos os testes no início e ir implementando um teste de cada vez, removendo dele a função `skip`.
-
-Você também pode rodar apenas um arquivo de teste, por exemplo:
-
-```bash
-npm test SearchBar.test.js
-```
-
-⚠️ Lembre-se de não entregar o projeto com nenhum teste ignorado. **Testes ignorados serão tratados como testes falhando**. ⚠️
-
-⚠️ **Não apague, em hipótese alguma, qualquer teste ou arquivo deste repositório**. ⚠️
-
----
-
-### Dica: watch mode
-
-Ao executar os testes localmente, [Jest](https://jestjs.io/), a ferramenta que executa os testes, entra em _watch mode_. Nesse modo, a cada vez que um arquivo é salvo, os testes são executados novamente. Isso pode aumentar sua produtividade removendo a necessidade de executar os testes manualmente o tempo todo. Você pode abrir uma aba no seu terminal ou no terminal do _VSCode_ e deixar o _Jest_ rodando nesse modo.
-
-⚠️  **Este trabalho contém alguns testes de componente não relacionados diretamente a requisitos! Estude-os e use-os para se orientar durante o desenvolvimento, garantindo que estejam sempre passando** ✅! ⚠️
 
 ---
 

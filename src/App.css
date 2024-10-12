@@ -1,5 +1,468 @@
-body {
-  background-color: whitesmoke;
-  box-sizing: border-box;
+:root {
+
+  --background: #1f2229;
+
+  --background2: #2e303c;
+
+  --background-button: #373945;
+
+  --background-button2: #4b4d59;
+
+  --yellow: #fae800;
+
+  --lightyellow: #e9e174;
+
+  --gray: #bec2c6;
+
+  --lightgreen2: #57a857;
+
+  --white: #fbfbfb;
+
+  --lightpurple: #a546a5;
+
+  --purple-400: #9164fa;
+
+  --purple-800: #6f48c9;
+
+  --webkit-animation: spin 2s linear infinite; /* Para Safari */
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  display: flex;
+  flex-direction: row;
+  font-family: Poppins , Arial , sans-serif;
+  font-size: 16px;
+}
+
+.movie-card-header {
+  display: flex;
+  justify-content: center;
+}
+
+.page-title {
+  align-items: center;
+  color: var(--yellow);
+  flex-direction: row;
+  font-size: 3rem;
+  font-weight: 600;
+  min-height: 100px;
+  padding-bottom: 10px;
+  text-align: center;
+  width: 100vw;
+}
+
+.add-card {
+  align-self: center;
+  background-color: var(--yellow);
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--background-button);
+  display: flex;
+  font-size: 1.125rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4%;
+  max-width: 20rem;
+  padding: 1.188rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 15.5rem;
+}
+
+.btn-edit, .btn {
+  align-self: center;
+  background-color: var(--background-button);
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--white);
+  display: flex;
+  font-size: 1.125rem;
+  padding: 1.117rem 1.7rem;
+  text-align: center;
+  text-decoration: none;
+  width: 7.5rem;
+}
+
+.btn-edit:hover {
+  background-color: var(--background-button2);
+  color: var(--white);
+}
+
+.btn {
+  background-color: green;
+}
+
+.btn:hover {
+  background-color: var(--lightgreen2);
+}
+
+.add-card:hover {
+  background-color: var(--lightyellow);
+  color: var(--background);
+}
+
+.add-card:active {
+  background-color: var(--lightgreen2);
+}
+
+.btn-delete {
+  align-self: center;
+  background-color: var(--lightpurple);
+  border: 0;
+  border-radius: 0.25rem;
+  display: flex;
+  font-size: 1.125rem;
+  padding: 1.127rem 1.7rem;
+  text-align: center;
+  text-decoration: none;
+  width: 7.9rem;
+}
+
+.btn-delete a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.btn-delete:hover {
+  background-color: var(--lightpurple);
+}
+
+.movie-card a {
+  background-color: var(--background2);
+  color: var(--gray);
+  font-size: 1rem;
+  font-weight: 600;
+  max-width: 300px;
+  padding: 1.188rem 2rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-delete a:hover {
+  color: var(--white);
+}
+
+.btn-back {
+  align-self: center;
+  background-color: green;
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--white);
+  display: flex;
+  font-size: 1.125rem;
+  padding: 1.117rem 1.7rem;
+  text-align: center;
+  text-decoration: none;
+  width: 7.5rem;
+}
+
+.btn-back:hover {
+  background-color: var(--lightgreen2);
+  color: var(--white);
+}
+
+.movie-list {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 48px 30px;
+}
+
+.movie-card {
+  background-color: var(--background2);
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+  max-height: 90vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.movie-card-img-container {
+  flex: 1 auto;
+  justify-content: space-between;
+  max-width: 100%;
+  padding: 10px;
+}
+
+.movie-card-image {
+  align-items: center;
+  justify-content: center;
+  max-height: 55vh;
+  max-width: 50vw;
+  width: 50vw;
+}
+
+.movie-card-body {
+  flex: 1 1 auto;
+  justify-content: space-evenly;
+  max-width: 46vw;
+  padding: 15px;
+}
+
+.movie-card a:active {
+  color: var(--yellow);
+}
+
+.movie-card a:hover {
+  background-color: var(--background-button2);
+}
+
+.movie-card-title {
+  color: var(--yellow);
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.movie-card-subtitle {
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.movie-card-storyline {
+  font-size: 14px;
+  text-align: justify;
+}
+
+.rating {
+  background-color: var(--yellow);
+  border-radius: 100%;
+  color: var(--background);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 12px;
+}
+
+.movie-card-rating {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 20px;
+}
+
+.form-addMovie {
+  align-items: center;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  padding: 2px;
+}
+
+.form-addMovie input, .form-addMovie textarea {
+  background-color: var(--background2);
+  border: 0;
+  color: var(--white);
+  opacity: 0.9;
+  width: 60vw;
+}
+
+.form-addMovie textarea {
+  overflow-y: scroll;
+}
+
+.form-addMovie select {
+  background-color: var(--background2);
+  border: 0;
+  color: var(--white);
+}
+
+.movie-details {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-detail {
+  align-self: center;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 97vw;
+}
+
+.movie-detail-title {
+  color: var(--gray);
+  font-size: 1.875rem;
+  font-weight: 600;
+  max-width: 95vw;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.movie-detail-subtitle {
+  color: var(--background-button2);
+  font-weight: 600;
+  max-width: 95vw;
+  padding-left: 20px;
+}
+
+.movie-detail-storyline, .movie-detail-genre, .movie-detail-rating {
+  color: var(--white);
+  max-width: 95vw;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.container-detail {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.main-box {
+  height: 600px;
+  margin: auto;
+  position: relative;
+  width: 600px;
+}
+
+.err, .err2, .far, .not-found {
+  color: var(--white);
+  position: absolute;
+}
+
+.err, .err2 {
+  font-size: 11rem;
+  top: 8%;
+}
+
+.err {
+  left: 20%;
+}
+
+.err2 {
+  left: 68%;
+}
+
+.far {
+  font-size: 8.5rem;
+  left: 42%;
+  top: 15%;
+}
+
+.not-found {
+  font-size: 1.6rem;
+  left: 26%;
+  top: 45%;
+  width: 75%;
+}
+
+.loading {
+  align-items: center;
+  animation: spin 2s linear infinite;
+  border: 16px solid var(--gray);
+  border-radius: 50%;
+  border-top: 16px solid var(--yellow);
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  position: absolute;
+  width: 150px;
+}
+
+@keyframes spin {
+
+  0% {
+
+    --webkit-transform: rotate(0deg);
+  }
+
+  100% {
+
+    --webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+
+  0% { transform: rotate(0deg); }
+
+  100% { transform: rotate(360deg); }
+}
+
+@media ( max-width : 786px ) {
+
+  html {
+    font-size: 87.5%;
+  }
+
+  .movie-list {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .movie-card {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    max-height: 600px;
+    max-width: 350px;
+    padding: 0;
+  }
+
+  .movie-card-img-container {
+    align-items: stretch;
+    display: flex;
+    justify-content: stretch;
+    margin: 0;
+    max-height: 40%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .movie-card-image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .movie-card-body {
+    flex: 1 1 auto;
+    justify-content: none;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .movie-card-subtitle {
+    margin: 0 0 8px;
+  }
+
+  .movie-card-storyline {
+    font-size: 14px;
+    text-align: justify;
+  }
+}
+
+/* CSS (estilização de botões, links, paleta de cores, etc)
+retirados e/ou inspirados nas fontes abaixo:
+--> Meu PR do Projeto Movie Cards:
+--> https://github.com/tryber/sd-010-a-project-movie-cards-library/pull/17
+--> Template do desafio complementar do Ignite ReactJS da Rocketseat:
+--> https://github.com/rocketseat-education/ignite-template-componentizando-a-aplicacao
+Estilização de Page Not Found: https://codepen.io/purplexmoss/pen/PoPyzMW
+Código do loading retirado de: https://www.w3schools.com/howto/howto_css_loader.asp */
